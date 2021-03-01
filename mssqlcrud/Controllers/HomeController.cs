@@ -21,35 +21,37 @@ namespace MSSQLCRUD.Controllers
         [HttpPost]
         public ActionResult Index(UserInfoModel userData)
         {
-            using (SqlConnection connSelect = new SqlConnection(connection))
-            {
-                connSelect.Open();
-                using (SqlCommand cmdSelect = connSelect.CreateCommand())
+            if (userData.UserID.Length > 0 && userData.UserPass.Length > 0) {
+                using (SqlConnection connSelect = new SqlConnection(connection))
                 {
-                    cmdSelect.CommandText = "SELECT * FROM [localb].[dbo].[mscrudgoal] "
-                                          + "WHERE username = @username AND password = @password;";
-                    cmdSelect.Parameters.AddWithValue("username", userData.UserID);
-                    cmdSelect.Parameters.AddWithValue("password", userData.UserPass);
-
-                    SqlDataReader rdr = cmdSelect.ExecuteReader();
-
-                    if (rdr.HasRows)
+                    connSelect.Open();
+                    using (SqlCommand cmdSelect = connSelect.CreateCommand())
                     {
-                        rdr.Read();
-                        userData.FirstName  = rdr["firstName"].ToString();
-                        ViewBag.FName       = userData.FirstName;
-                        userData.MiddleName = rdr["middleName"].ToString();
-                        userData.LastName   = rdr["lastName"].ToString();
-                        try { userData.Age  = Convert.ToInt32(rdr["age"].ToString()); }
-                        catch (Exception) { userData.Age = 0; }
-                        userData.Gender     = rdr["gender"].ToString();
-                        userData.Address    = rdr["address"].ToString();
-                        rdr.Close();
-                        connSelect.Close();
-                        return View("Index", userData);
+                        cmdSelect.CommandText = "SELECT * FROM [localb].[dbo].[mscrudgoal] "
+                                              + "WHERE username = @username AND password = @password;";
+                        cmdSelect.Parameters.AddWithValue("username", userData.UserID);
+                        cmdSelect.Parameters.AddWithValue("password", userData.UserPass);
+
+                        SqlDataReader rdr = cmdSelect.ExecuteReader();
+
+                        if (rdr.HasRows)
+                        {
+                            rdr.Read();
+                            userData.FirstName = rdr["firstName"].ToString();
+                            ViewBag.FName = userData.FirstName;
+                            userData.MiddleName = rdr["middleName"].ToString();
+                            userData.LastName = rdr["lastName"].ToString();
+                            try { userData.Age = Convert.ToInt32(rdr["age"].ToString()); }
+                            catch (Exception) { userData.Age = 0; }
+                            userData.Gender = rdr["gender"].ToString();
+                            userData.Address = rdr["address"].ToString();
+                            rdr.Close();
+                            connSelect.Close();
+                            return View("Index", userData);
+                        }
                     }
+                    connSelect.Close();
                 }
-                connSelect.Close();
             }
             ViewBag.msg = "username or password is incorrect";
             return View("Login");
