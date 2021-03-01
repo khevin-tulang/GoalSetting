@@ -1,0 +1,62 @@
+﻿body {
+    padding-top: 50px;
+    padding-bottom: 20px;
+    background-color: #303030;
+    font-family: monospace;
+}
+
+/* Set padding to keep content from hitting the edges */
+.body-content {
+    margin-bottom: 60px;
+    background-color: #303030;
+}
+
+/* Override the default bootstrap behavior where horizontal description lists 
+   will truncate terms that are too long to fit in the left column 
+*/
+.dl-horizontal dt {
+    white-space: normal;
+}
+
+/* Set width on the form input elements since they're 100% wide by default */
+input,
+select,
+textarea {
+    max-width: 280px;
+}
+
+form#formLogin {
+    padding: 15px;
+    border-radius: 15px;
+    border: 1px solid #444;
+    font-style: inherit;
+    font-size: 12px;
+    width: 280px;
+    margin-left: 50%;
+    transform: translateX(-50%);
+    margin-top: 190px;
+}
+
+.form_site_input {
+    width: 100%;
+    border-radius: 5px;
+    padding: 5px;
+}
+
+.form_site_btn {
+    border-color: #0091d0;
+    background-color: #0091d0;
+    color: #ffffff;
+    border-radius: 5px;
+    padding: 5px;
+    width: 220px;
+}
+
+.form_cancel_btn {
+    border: 1px solid grey;
+    background-color: #454545;
+    border-radius: 5px;
+    padding: 5px;
+    width: 220px;
+    font-weight: bold;
+}

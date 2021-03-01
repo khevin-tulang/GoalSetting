@@ -1,0 +1,40 @@
+﻿@{
+    ViewData["Title"] = "CONFIRM DELETE";
+}
+@model MSSQLCRUD.Models.UserInfoModel
+
+<form id="formLogin" action="/delete" method="POST">
+    <div style="color:white;">
+        Please provide username and password to confirm deletion of account
+    </div>
+    <br />
+    <div class="form-group">
+        @Html.TextBoxFor(m => m.UserID, new
+        {
+            @class = "form_site_input",
+            @placeholder = "username",
+            @autofocus = "autofocus",
+            @spellcheck = false,
+            @maxlength = 20,
+            @required = true
+        })
+    </div>
+    <div class="form-group">
+        @Html.PasswordFor(m => m.UserPass, new
+        {
+            @class = "form_site_input",
+            @placeholder = "password",
+            @required = true
+        })
+    </div>
+    <div class="field-validation-error">
+        @ViewBag.msg
+    </div>
+    <center>
+        <button class="form_site_btn" type="submit">CONFIRM DELETE</button>
+        <br /><br />
+        <a href="./login">
+            <div class="form_cancel_btn" style="display: inline-block;"> CANCEL </div>
+        </a>
+    </center>
+</form>

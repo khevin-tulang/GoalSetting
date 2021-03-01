@@ -1,0 +1,106 @@
+﻿@{
+    ViewBag.Title = "Register";
+}
+
+@model MSSQLCRUD.Models.UserInfoModel
+
+<h3 style="color: white">@ViewBag.Title</h3>
+
+<form id="formRegister" action="/register" method="POST">
+    <div>username</div>
+    <center>
+        @Html.TextBoxFor(m => m.FirstName, new
+        {
+            @class = "form_site_input",
+            @placeholder = "first name",
+            @autofocus = "autofocus",
+            @spellcheck = false,
+            @maxlength = 20,
+            @required = true
+        })
+        @Html.TextBoxFor(m => m.MiddleName, new
+        {
+            @class = "form_site_input",
+            @placeholder = "middle name",
+            @spellcheck = false,
+            @maxlength = 20,
+            @required = true
+        })
+        @Html.TextBoxFor(m => m.LastName, new
+        {
+            @class = "form_site_input",
+            @placeholder = "last name",
+            @spellcheck = false,
+            @maxlength = 20,
+            @required = true
+        })
+    </center>
+    <br />
+    <center>
+        @Html.TextBoxFor(m => m.Gender, new
+        {
+            @class = "form_site_input",
+            @placeholder = "gender",
+            @spellcheck = false,
+            @maxlength = 6,
+            @required = true
+        })
+        @Html.TextBoxFor(m => m.Age, new
+        {
+           @class = "form_site_input",
+           @placeholder = "age",
+           @spellcheck = false,
+           @maxlength = 2,
+           @required = true,
+           @type = "number"
+        })
+        @Html.TextBoxFor(m => m.Address, new
+        {
+            @class = "form_site_input",
+            @placeholder = "Address",
+            @spellcheck = false,
+            @maxlength = 50,
+            @required = true
+        })
+    </center>
+    <br />
+    <center>
+        @Html.TextBoxFor(m => m.UserID, new
+        {
+            @class = "form_site_input",
+            @placeholder = "username",
+            @spellcheck = false,
+            @maxlength = 20,
+            @required = true
+        })
+        @Html.PasswordFor(m => m.UserPass, new
+       {
+           @class = "form_site_input",
+           @placeholder = "password",
+           @spellcheck = false,
+           @maxlength = 20,
+           @minlength = 4,
+           @required = true
+       })
+        @Html.PasswordFor(m => m.ConfPass, new
+        {
+           @class = "form_site_input",
+           @placeholder = "confirm password",
+           @spellcheck = false,
+           @maxlength = 20,
+           @minlength = 4,
+           @required = true
+        })
+        <br />
+        <div class="field-validation-error" style="display:inline-block;">
+            @ViewBag.msg
+        </div>
+    </center>
+    <br />
+    <center>
+        <a href="./login">
+            <div class="form_cancel_btn" style="display: inline-block;"> CANCEL </div>
+        </a>
+        <button class="form_site_btn" type="submit">SUBMIT</button>
+    </center>
+</form>

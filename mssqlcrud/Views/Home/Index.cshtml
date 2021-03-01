@@ -1,0 +1,125 @@
+﻿@{
+    ViewData["Title"] = "ZOZOTOWN BACK OFFICE - ";
+}
+@model MSSQLCRUD.Models.UserInfoModel
+<style>
+    td {
+        padding: 5px;
+    }
+    td > input {
+        color: black;
+    }
+    form {
+        color: white;
+        margin-top: 50px !important;
+    }
+</style>
+
+<form id="formLogin" action="/update" method="POST">
+    Welcome @ViewBag.FName! <a href="/login">Logout</a>
+    <br /><br /><br />
+    @Html.TextBoxFor(m => m.UserID, new { @style = "display:none;" })
+    <table>
+        <tr>
+            <td>FirstName </td>
+            <td>
+                @Html.TextBoxFor(m => m.FirstName, new
+                {
+                    @class = "form_site_input",
+                    @placeholder = "first name",
+                    @autofocus = "autofocus",
+                    @spellcheck = false,
+                    @maxlength = 20,
+                    @required = true
+                })
+            </td>
+        </tr>
+        <tr>
+            <td>Middle Name </td>
+            <td>
+                @Html.TextBoxFor(m => m.MiddleName, new
+                {
+                    @class = "form_site_input",
+                    @placeholder = "middle name",
+                    @spellcheck = false,
+                    @maxlength = 20,
+                    @required = true
+                })
+            </td>
+        </tr>
+        <tr>
+            <td>Last Name </td>
+            <td>
+                @Html.TextBoxFor(m => m.LastName, new
+                {
+                    @class = "form_site_input",
+                    @placeholder = "last name",
+                    @spellcheck = false,
+                    @maxlength = 20,
+                    @required = true
+                })
+            </td>
+        </tr>
+        <tr>
+            <td>Gender</td>
+            <td>
+                @Html.TextBoxFor(m => m.Gender, new
+                {
+                    @class = "form_site_input",
+                    @placeholder = "Gender",
+                    @spellcheck = false,
+                    @maxlength = 6
+                })
+            </td>
+        </tr>
+        <tr>
+            <td>Age</td>
+            <td>
+                @Html.TextBoxFor(m => m.Age, new
+                {
+                    @class = "form_site_input",
+                    @placeholder = "Age",
+                    @spellcheck = false,
+                    @maxlength = 2,
+                    @type = "number"
+                })
+            </td>
+        </tr>
+        <tr>
+            <td>Address </td>
+            <td>
+                @Html.TextBoxFor(m => m.Address, new
+                {
+                    @class = "form_site_input",
+                    @placeholder = "Address",
+                    @spellcheck = false,
+                    @maxlength = 20,
+                    @required = true
+                })
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <center style="color:orangered">
+                    @ViewBag.msg
+                </center>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <center>
+                    <button class="form_site_btn" type="submit">UPDATE DETAILS</button>
+                </center>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <center>
+                    <a href="./delete" type="submit">
+                        <div class="form_cancel_btn" style="display: inline-block;"> DELETE ACCOUNT </div>
+                    </a>
+                </center>
+            </td>
+        </tr>
+    </table>
+</form>
