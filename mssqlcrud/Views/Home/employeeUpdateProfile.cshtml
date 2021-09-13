@@ -1,11 +1,10 @@
 ﻿@{
-    ViewData["Title"] = "Registeration ";
+    ViewData["Title"] = "Update Profile ";
 }
 @model MSSQLCRUD.Models.UserProfileInfoModel
 <style>
     table {
         width: 100%;
-        
     }
 
     tbody > tr:nth-child(2n+1) {
@@ -23,12 +22,14 @@
     form {
         color: white;
     }
-    form > div {
-        border: 1px solid grey;
-        padding: 15px;
-        border-radius: 10px;
-        margin-bottom: 15px;
-    }
+
+        form > div {
+            border: 1px solid grey;
+            padding: 15px;
+            border-radius: 10px;
+            margin-bottom: 15px;
+        }
+
     body {
         color: white;
     }
@@ -43,28 +44,27 @@
 </style>
 <div style="border: 1px solid yellow; min-width: 1140px; min-height: 80vh;">
     <div style="border: 1px solid white; padding: 10px 15px; width: 25%; float: left; min-height: 80vh;">
-        <div style="font-size:smaller;">@Session["eid"]</div>
+        <div style="font-size:smaller;">@Model.EmployeeID</div>
         <div style=" border-bottom: 1px solid white;
                      font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
                      font-weight: bold;
                      font-size: 20px;
                      display:inline;">
-            @Session["fname"]
+            @Model.FirstName
         </div>
         <div>
-            @Session["lname"]
+            @Model.LastName
         </div>
         <div style="padding-top: 30px;">
-            <a href="/index">> Home</a> <br />
-            <a href="/profile?employeeid=@Session["eid"]">> View Profile</a> <br />
-            <a href="/register">> Register New Employee</a> <br />
             <a href="/logout">> Logout</a> <br />
         </div>
     </div>
     <div style="display:block; border: 1px solid white; padding: 10px 15px; float: left; width: 75%; min-height: 80vh;">
-        <h3>Registeration</h3>
+        <h3>Update Profile</h3>
         <div style="padding: 10px 15px;">
-            <form id="formRegister" action="/register" method="POST">
+            <form id="formRegister" action="/employeeUpdateProfile" method="POST">
+                @Html.TextBoxFor(m => m.EmployeeID, new { @hidden = true })
+                @Html.TextBoxFor(m => m.RegisteredDate, new { @hidden = true })
                 <div>
                     <table>
                         <colgroup style="width: 20%"></colgroup>
@@ -182,7 +182,7 @@
                     </table>
                 </div>
                 <center>
-                    <button class="form_site_btn" type="submit">SUBMIT</button>
+                    <button class="form_site_btn" type="submit">Save</button>
                 </center>
             </form>
         </div>

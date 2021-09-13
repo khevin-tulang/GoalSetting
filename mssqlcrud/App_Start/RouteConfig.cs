@@ -1,4 +1,5 @@
-﻿using System;
+﻿
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -14,14 +15,31 @@ namespace MSSQLCRUD
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
             routes.MapRoute(
+                name: "EmployeeUpdateProfile",
+                url: "employeeUpdateProfile/",
+                defaults: new { controller = "Home", action = "employeeUpdateProfile", id = UrlParameter.Optional }
+            );
+            routes.MapRoute(
+                name: "ViewProfile",
+                url: "profile/",
+                defaults: new { controller = "Home", action = "viewprofile", id = UrlParameter.Optional }
+            );
+
+            routes.MapRoute(
                 name: "Update",
                 url: "update/",
                 defaults: new { controller = "Home", action = "update", id = UrlParameter.Optional }
             );
 
             routes.MapRoute(
-                name: "Login",
-                url: "login/",
+                name: "Logout",
+                url: "logout/",
+                defaults: new { controller = "Home", action = "logout", id = UrlParameter.Optional }
+            );
+
+            routes.MapRoute(
+                name: "Index",
+                url: "index/",
                 defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
             );
 

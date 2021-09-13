@@ -1,11 +1,10 @@
 ﻿@{
-    ViewData["Title"] = "Registeration ";
+    ViewData["Title"] = "Update Profile ";
 }
 @model MSSQLCRUD.Models.UserProfileInfoModel
 <style>
     table {
         width: 100%;
-        
     }
 
     tbody > tr:nth-child(2n+1) {
@@ -23,12 +22,14 @@
     form {
         color: white;
     }
-    form > div {
-        border: 1px solid grey;
-        padding: 15px;
-        border-radius: 10px;
-        margin-bottom: 15px;
-    }
+
+        form > div {
+            border: 1px solid grey;
+            padding: 15px;
+            border-radius: 10px;
+            margin-bottom: 15px;
+        }
+
     body {
         color: white;
     }
@@ -62,9 +63,10 @@
         </div>
     </div>
     <div style="display:block; border: 1px solid white; padding: 10px 15px; float: left; width: 75%; min-height: 80vh;">
-        <h3>Registeration</h3>
+        <h3>Update Profile</h3>
         <div style="padding: 10px 15px;">
-            <form id="formRegister" action="/register" method="POST">
+            <form id="formRegister" action="/update" method="POST">
+                @Html.TextBoxFor(m => m.EmployeeID, new { @hidden = true })
                 <div>
                     <table>
                         <colgroup style="width: 20%"></colgroup>
@@ -182,7 +184,7 @@
                     </table>
                 </div>
                 <center>
-                    <button class="form_site_btn" type="submit">SUBMIT</button>
+                    <button class="form_site_btn" type="submit">Save</button>
                 </center>
             </form>
         </div>

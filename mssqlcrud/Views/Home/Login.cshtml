@@ -3,7 +3,7 @@
 }
 @model MSSQLCRUD.Models.UserInfoModel
 
-<form id="formLogin" action="/login" method="POST">
+<form id="formLogin" action="/index" method="POST">
     <div class="form-group">
         <div style="color:white;">
             Login Portal
@@ -31,9 +31,6 @@
     </div>
     <div class="field-validation-error">
         @ViewBag.msg
-    </div>
-    <div style="text-align:right; padding-bottom: 15px;">
-        <a href="/Register" title="Register"> REGISTER </a>
     </div>
     <center>
         <button class="form_site_btn" type="submit">LOGIN</button>

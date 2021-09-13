@@ -1,0 +1,125 @@
+﻿@{
+    ViewData["Title"] = "Profile";
+}
+@model MSSQLCRUD.Models.UserProfileInfoModel
+<style>
+    td {
+        padding: 5px;
+    }
+
+    input {
+        color: black;
+    }
+
+    form {
+        color: white;
+        margin-top: 50px !important;
+    }
+
+    body {
+        color: white;
+    }
+
+    a {
+        color: white;
+    }
+
+        a:hover {
+            color: #9cd4ff;
+        }
+</style>
+<div style="border: 1px solid yellow; min-width: 1140px; min-height: 80vh;">
+    <div style="border: 1px solid white; padding: 10px 15px; width: 25%; float: left; min-height: 80vh;">
+        <div style="font-size:smaller;">@Model.EmployeeID</div>
+        <div style=" border-bottom: 1px solid white;
+                     font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+                     font-weight: bold;
+                     font-size: 20px;
+                     display:inline;">
+            @Model.FirstName
+        </div>
+        <div>
+            @Model.LastName
+        </div>
+        <div style="padding-top: 30px;">
+            <a href="/logout">> Logout</a> <br />
+        </div>
+    </div>
+    <div style="display:block; border: 1px solid white; padding: 10px 15px; float: left; width: 75%; min-height: 80vh;">
+        <h3>Profile</h3>
+        <div style="padding: 10px 15px;">
+            <div style="padding: 10px; border: 1px solid grey;">
+                <table>
+                    <tr>
+                        <td>
+                            Employee ID
+                        </td>
+                        <td>
+                            : @Model.EmployeeID
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Name
+                        </td>
+                        <td>
+                            : @Model.FirstName @Model.MiddleName @Model.LastName
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Registered Date
+                        </td>
+                        <td>
+                            : @Model.RegisteredDate
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Birthdate
+                        </td>
+                        <td>
+                            : @Model.birthdate
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Age
+                        </td>
+                        <td>
+                            : @Model.Age
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Marital Status
+                        </td>
+                        <td>
+                            : @Model.maritalStatus
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Address
+                        </td>
+                        <td>
+                            : @Model.Address
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Position
+                        </td>
+                        <td>
+                            : @Model.position
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <br />
+            <center>
+                <u><a href="/employeeUpdateProfile?EmployeeID=@Model.EmployeeID" class="form_site_btn" style="padding: 6px 15px;">Update Profile</a></u>
+            </center>
+        </div>
+    </div>
+</div>
