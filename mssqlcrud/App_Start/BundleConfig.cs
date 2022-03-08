@@ -24,6 +24,7 @@ namespace MSSQLCRUD
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
+                      "~/Content/animation.less",
                       "~/Content/site.css"));
         }
     }

@@ -151,6 +151,7 @@ C:\zozo\MVC_MSSQLCRUD\MSSQLCRUD\bin\System.Web.WebPages.Razor.xml
 C:\zozo\MVC_MSSQLCRUD\MSSQLCRUD\bin\Newtonsoft.Json.xml
 C:\zozo\MVC_MSSQLCRUD\MSSQLCRUD\bin\Antlr3.Runtime.pdb
 C:\zozo\MVC_MSSQLCRUD\MSSQLCRUD\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\zozo\MVC_MSSQLCRUD\MSSQLCRUD\obj\Debug\MSSQLCRUD.csprojAssemblyReference.cache
 C:\zozo\MVC_MSSQLCRUD\MSSQLCRUD\obj\Debug\MSSQLCRUD.csproj.CoreCompileInputs.cache
 C:\zozo\MVC_MSSQLCRUD\MSSQLCRUD\obj\Debug\MSSQLCRUD.csproj.CopyComplete
 C:\zozo\MVC_MSSQLCRUD\MSSQLCRUD\obj\Debug\MSSQLCRUD.dll

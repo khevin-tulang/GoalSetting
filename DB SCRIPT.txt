@@ -1,0 +1,55 @@
+USE [localb]
+GO
+
+/****** Object:  Table [dbo].[mscrudgoal]    Script Date: 3/8/2022 11:30:49 AM ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[mscrudgoal]') AND type in (N'U'))
+DROP TABLE [dbo].[mscrudgoal]
+GO
+
+/****** Object:  Table [dbo].[mscrudgoal]    Script Date: 3/8/2022 11:30:49 AM ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [dbo].[mscrudgoal](
+	[username] [varchar](50) NOT NULL,
+	[password] [varchar](255) NOT NULL,
+	[employeeID] [varchar](255) NOT NULL,
+	[registDate] [datetime] NOT NULL,
+	[role] [tinyint] NOT NULL
+) ON [PRIMARY]
+GO
+
+
+
+USE [localb]
+GO
+
+/****** Object:  Table [dbo].[mscrudgoalProfile]    Script Date: 3/8/2022 11:21:28 AM ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[mscrudgoalProfile]') AND type in (N'U'))
+DROP TABLE [dbo].[mscrudgoalProfile]
+GO
+
+/****** Object:  Table [dbo].[mscrudgoalProfile]    Script Date: 3/8/2022 11:21:28 AM ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [dbo].[mscrudgoalProfile](
+	[firstName] [varchar](50) NOT NULL,
+	[lastName] [varchar](255) NOT NULL,
+	[middleName] [varchar](255) NOT NULL,
+	[age] [int] NOT NULL,
+	[address] [varchar](255) NULL,
+	[position] [varchar](255) NULL,
+	[maritalstatus] [varchar](255) NULL,
+	[birthdate] [datetime] NULL,
+	[employeeid] [varchar](255) NOT NULL
+) ON [PRIMARY]
+GO
+
+

@@ -294,9 +294,14 @@ namespace MSSQLCRUD.Controllers
 
         public ActionResult ViewProfile(String employeeid)
         {
-            UserProfileInfoModel  usrprof = new UserProfileInfoModel();
-            usrprof = getProfile(employeeid);
-            return View(usrprof);
+            if (employeeid == null || employeeid == "")
+                return View("Login");
+            else
+            {
+                UserProfileInfoModel usrprof = new UserProfileInfoModel();
+                usrprof = getProfile(employeeid);
+                return View(usrprof);
+            }
         }
         public UserProfileInfoModel getProfile(string employeeID)
         {
